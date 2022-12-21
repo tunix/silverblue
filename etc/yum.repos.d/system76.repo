@@ -1,0 +1,4 @@
+[system76]
+baseurl = https://download.copr.fedorainfracloud.org/results/szydell/system76/fedora-$releasever-$basearch
+gpgkey = https://download.copr.fedorainfracloud.org/results/szydell/system76/pubkey.gpg
+name = system76

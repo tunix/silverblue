@@ -1,0 +1,5 @@
+[globalprotect-openconnect]
+baseurl = https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/fedora-$releasever-$basearch/
+gpgcheck = 1
+gpgkey = https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/pubkey.gpg
+name = globalprotect-openconnect

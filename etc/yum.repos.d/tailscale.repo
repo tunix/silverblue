@@ -1,0 +1,6 @@
+[tailscale]
+async = 1
+baseurl = https://pkgs.tailscale.com/stable/fedora/$basearch
+gpgcheck = 0
+gpgkey =
+name = tailscale
