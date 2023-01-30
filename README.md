@@ -28,4 +28,4 @@ sudo rpm-ostree rebase fedora:fedora/37/x86_64/silverblue
 
 ### Credits
 
-Thanks to @castrojo for his awesome work!
+Thanks to [@castrojo](https://github.com/castrojo) for his awesome work!
