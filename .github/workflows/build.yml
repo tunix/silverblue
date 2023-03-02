@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "**.md"
+      - "**.txt"
 
 env:
   IMAGE_NAME: silverblue-base
@@ -47,6 +50,16 @@ jobs:
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
 
+      # Build metadata
+      - name: Image Metadata
+        uses: docker/metadata-action@v4
+        id: meta
+        with:
+          images: |
+            ${{ env.IMAGE_NAME }}
+          labels: |
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/tunix/silverblue-base/main/README.md
+
       - name: Build image
         id: build_image
         uses: redhat-actions/buildah-build@v2
@@ -60,6 +73,7 @@ jobs:
             ${{ steps.generate_tags.outputs.sha_short }}
           build-args: |
             FEDORA_MAJOR_VERSION=${{ matrix.major_version }}
+          labels: ${{ steps.meta.outputs.labels }}
           oci: true
 
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
