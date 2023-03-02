@@ -5,7 +5,9 @@ FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 
 COPY etc /etc
 
-RUN rpm-ostree override remove firefox firefox-langpacks
+RUN rpm-ostree override remove \
+    firefox firefox-langpacks \
+    gnome-software-rpm-ostree
 
 RUN rpm-ostree install \
     ansible \
