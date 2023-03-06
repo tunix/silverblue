@@ -14,6 +14,7 @@ RUN rpm-ostree install \
     firmware-manager \
     globalprotect-openconnect \
     langpacks-tr \
+    libgda libgda-sqlite \
     moby-engine \
     openssl \
     python3-psutil \
