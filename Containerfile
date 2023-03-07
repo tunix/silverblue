@@ -11,6 +11,7 @@ RUN rpm-ostree override remove \
 
 RUN rpm-ostree install \
     ansible \
+    distrobox \
     firmware-manager \
     globalprotect-openconnect \
     langpacks-tr \
