@@ -24,7 +24,10 @@ RUN rpm-ostree install \
     system76-firmware \
     system76-keyboard-configurator
 
-RUN systemctl enable system76-firmware-daemon
+RUN systemctl enable system76-firmware-daemon \
+    && systemctl enable rpm-ostreed-automatic.timer \
+    && systemctl enable flatpak-system-update.timer \
+    && systemctl --global enable flatpak-user-update.timer
 
 RUN rpm-ostree cleanup -m \
     && ostree container commit
