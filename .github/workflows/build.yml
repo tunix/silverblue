@@ -27,7 +27,7 @@ jobs:
             is_latest: true
             is_stable: true
           - major_version: 38
-            is_latest: true
+            is_latest: false
             is_stable: false
 
     steps:
