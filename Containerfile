@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=37
+ARG FEDORA_MAJOR_VERSION=38
 
 # See https://pagure.io/releng/issue/11047 for final location
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
@@ -9,6 +9,10 @@ COPY usr /usr
 RUN rpm-ostree override remove \
     firefox firefox-langpacks \
     gnome-software-rpm-ostree
+
+RUN rpm-ostree install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_MAJOR_VERSION}.noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_MAJOR_VERSION}.noarch.rpm
 
 RUN rpm-ostree install \
     ansible \
@@ -22,7 +26,19 @@ RUN rpm-ostree install \
     python3-psutil \
     system76-driver \
     system76-firmware \
-    system76-keyboard-configurator
+    system76-keyboard-configurator \
+    intel-media-driver \
+    kernel-devel-matched \
+    libratbag-ratbagd \
+    libva-intel-driver \
+    libva-utils \
+    mesa-va-drivers-freeworld \
+    nvme-cli \
+    nvtop \
+    pipewire-codec-aptx \
+    smartmontools \
+    zstd \
+    ffmpegthumbnailer
 
 RUN systemctl enable system76-firmware-daemon \
     && systemctl enable rpm-ostreed-automatic.timer \

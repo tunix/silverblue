@@ -16,15 +16,16 @@ sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/tunix/silverblue-base:
 * To revert back:
 
 ```
-sudo rpm-ostree rebase fedora:fedora/37/x86_64/silverblue
+sudo rpm-ostree rebase fedora:fedora/38/x86_64/silverblue
 ```
 
 * You can prefer between different tags:
 
+  * 38
   * 37
   * latest
   * stable
-  * 20230131
+  * a date like this: 20230131
 
 ### Credits
 
