@@ -11,10 +11,6 @@ RUN rpm-ostree override remove \
     gnome-software-rpm-ostree
 
 RUN rpm-ostree install \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-RUN rpm-ostree install \
     ansible \
     distrobox \
     firmware-manager \
@@ -26,19 +22,7 @@ RUN rpm-ostree install \
     python3-psutil \
     system76-driver \
     system76-firmware \
-    system76-keyboard-configurator \
-    intel-media-driver \
-    kernel-devel-matched \
-    libratbag-ratbagd \
-    libva-intel-driver \
-    libva-utils \
-    mesa-va-drivers-freeworld \
-    nvme-cli \
-    nvtop \
-    pipewire-codec-aptx \
-    smartmontools \
-    zstd \
-    ffmpegthumbnailer
+    system76-keyboard-configurator
 
 RUN systemctl enable system76-firmware-daemon \
     && systemctl enable rpm-ostreed-automatic.timer \
